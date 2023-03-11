@@ -1,18 +1,13 @@
 {
-    "name": "with music",
+    "name": "Database",
     "version": "1.0.0",
     "description": "",
     "dependencies": {
         "device": "*"
     },
     "files": [
-        "main.blocks",
         "main.ts",
-        "README.md",
-        "assets.json",
-        "main.py",
-        "tilemap.g.jres",
-        "tilemap.g.ts"
+        "README.md"
     ],
     "testFiles": [
         "test.ts"
