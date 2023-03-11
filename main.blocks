@@ -1,0 +1,1 @@
+<xml xmlns="https://developers.google.com/blockly/xml"><block type="pxt-on-start" id="zkCsE-TdX1rFF@Anz`z." x="0" y="0"><statement name="HANDLER"><block type="mixer_play_sound" id="/[e!F94%~YE*Q(C|R@1T"><field name="sound">music.baDing</field></block></statement></block></xml>
