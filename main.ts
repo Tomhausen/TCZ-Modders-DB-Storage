@@ -1,38 +1,3 @@
-//% weight=0 color=#C52746 icon="\uf1c0" block="Database Advanced"
-//% advanced=true
-//% groups="['Pairs Key = Value']"
-namespace databaseAdvanced {
-    const PRE = "DB.";
-    const PRE_CFG = PRE + "C.";
-    const PRE_CFG_TEXT = PRE_CFG + "T.";
-    const PRE_CFG_NUM = PRE_CFG + "N.";
-    const PRE_CFG_BOOL = PRE_CFG + "B.";
-    const PRE_CFG_OBJ = PRE_CFG + "O.";
-    const PRE_LIST = PRE + "L.";
-
-    //% blockId=setObjectValue
-    //% block="set key $key to object $val"
-    //% group="Pairs Key = Value"
-    //% weight=100
-    export function setObjectValue(key: string, val: object) {
-        settings.writeJSON(PRE_CFG_OBJ + key, val)
-        settings.writeNumber(PRE_CFG_NUM + key, 0)
-        settings.writeString(PRE_CFG_TEXT + key, "")
-        settings.writeJSON(PRE_CFG_BOOL + key, false)
-
-        settings.writeNumber(PRE + "ON", 1);
-    }
-
-    //% blockId=getObjectValue
-    //% block="get key $key as object"
-    //% group="Pairs Key = Value"
-    //% weight=100
-    export function getObjectValue(key: string): object {
-        return settings.readJSON(PRE_CFG_OBJ + key)
-    }
-}
-
-
 //% weight=0 color=#C52746 icon="\uf1c0" block="Database"
 //% advanced=false
 //% groups="['Pairs Key = Value', 'Lists']"
