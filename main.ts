@@ -1,7 +1,7 @@
 //% weight=0 color=#C52746 icon="\uf1c0" block="Database"
 //% advanced=false
 //% groups="['Pairs Key = Value', 'Lists']"
-namespace dataBase {
+namespace database {
 
     const PRE = "DB.";
     const PRE_CFG = PRE + "C.";
