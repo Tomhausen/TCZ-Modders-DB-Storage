@@ -169,7 +169,7 @@ namespace database {
     }
 
     //% blockId=setBoolValue
-    //% block="set key $key to text $val"
+    //% block="set key $key to boolean $val"
     //% group="Pairs Key = Value"
     //% weight=100
     export function setBoolValue(key: string, val: boolean) {
@@ -181,7 +181,7 @@ namespace database {
     }
 
     //% blockId=getBoolValue
-    //% block="get key $key as text"
+    //% block="get key $key as boolean"
     //% group="Pairs Key = Value"
     //% weight=100
     export function getBoolValue(key: string): boolean {
