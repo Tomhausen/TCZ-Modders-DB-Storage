@@ -7,6 +7,7 @@ namespace database {
     const PRE_CFG = PRE + "C.";
     const PRE_CFG_TEXT = PRE_CFG + "T.";
     const PRE_CFG_NUM = PRE_CFG + "N.";
+    const PRE_CFG_BOOL = PRE_CFG + "B.";
     const PRE_LIST = PRE + "L.";
 
 
@@ -133,7 +134,8 @@ namespace database {
     //% weight=100
     export function setTextValue(key: string, val: string) {
         settings.writeString(PRE_CFG_TEXT + key, val)
-        settings.writeNumber(PRE_CFG_NUM + key, parseInt(val));
+        settings.writeNumber(PRE_CFG_NUM + key, parseInt(val))
+        settings.writeJSON(PRE_CFG_BOOL + key, false)
 
         settings.writeNumber(PRE + "ON", 1);
     }
@@ -153,6 +155,7 @@ namespace database {
     export function setNumberValue(key: string, val: number) {
         settings.writeNumber(PRE_CFG_NUM + key, val)
         settings.writeString(PRE_CFG_TEXT + key, val.toString())
+        settings.writeJSON(PRE_CFG_BOOL + key, false)
 
         settings.writeNumber(PRE + "exists", 1);
     }
@@ -165,13 +168,33 @@ namespace database {
         return settings.readNumber(PRE_CFG_NUM + key)
     }
 
+    //% blockId=setBoolValue
+    //% block="set key $key to text $val"
+    //% group="Pairs Key = Value"
+    //% weight=100
+    export function setBoolValue(key: string, val: boolean) {
+        settings.writeJSON(PRE_CFG_BOOL + key, val)
+        settings.writeNumber(PRE_CFG_NUM + key, val ? 1 : 0);
+        settings.writeString(PRE_CFG_NUM + key, val.toString());
+
+        settings.writeNumber(PRE + "ON", 1);
+    }
+
+    //% blockId=getBoolValue
+    //% block="get key $key as text"
+    //% group="Pairs Key = Value"
+    //% weight=100
+    export function getBoolValue(key: string): boolean {
+        return settings.readJSON(PRE_CFG_BOOL + key)
+    }
+
+
     //% blockId=existsKey
     //% block="exists key $key"
     //% group="Pairs Key = Value"
     //% weight=100
     export function existsKey(key: string): boolean {
-        return settings.exists(PRE_CFG_NUM + key) || settings.exists(PRE_CFG_TEXT + key);
-
+        return settings.exists(PRE_CFG_NUM + key) || settings.exists(PRE_CFG_TEXT + key) || settings.exists(PRE_CFG_BOOL + key);
     }
 
     //% blockId=removeKey
