@@ -7,13 +7,14 @@
     },
     "files": [
         "main.ts",
-        "README.md"
+        "README.md",
+        "db.ts"
     ],
     "testFiles": [
         "test.ts"
     ],
     "targetVersions": {
-        "target": "1.13.9",
+        "target": "2.0.1",
         "pxt": "8.5.2",
         "targetId": "arcade"
     },
